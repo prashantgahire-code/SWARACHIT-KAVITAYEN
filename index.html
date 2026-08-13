@@ -1,1141 +1,1094 @@
 <!DOCTYPE html>
 <html lang="hi">
 <head>
-    <meta charset="UTF-8">
-
-    <meta name="viewport"
-          content="width=device-width, initial-scale=1.0">
-
-    <meta name="theme-color" content="#24352f">
-
-    <meta name="description"
-          content="प्रशांत गाहिरे की स्वरचित कविताएँ">
-
-    <title>प्रशांत गाहिरे | स्वरचित कविताएँ</title>
-
-    <style>
-
-        /* =========================
-           मूल सेटिंग
-        ========================== */
-
-        * {
-            box-sizing: border-box;
-            margin: 0;
-            padding: 0;
-        }
-
-        html {
-            scroll-behavior: smooth;
-        }
-
-        body {
-            font-family:
-                Georgia,
-                "Noto Serif Devanagari",
-                "Nirmala UI",
-                serif;
-
-            background: #f5f1e8;
-            color: #292a27;
-
-            line-height: 1.8;
-        }
-
-
-        /* =========================
-           HEADER / HERO
-        ========================== */
-
-        .hero {
-            min-height: 430px;
-
-            display: flex;
-            align-items: center;
-            justify-content: center;
-
-            text-align: center;
-
-            padding: 70px 20px;
-
-            background:
-                radial-gradient(
-                    circle at top,
-                    #40564d,
-                    #24352f 65%,
-                    #1d2b27
-                );
-
-            color: #fff;
-
-            position: relative;
-            overflow: hidden;
-        }
-
-        .hero::before {
-            content: "❦";
-
-            position: absolute;
-
-            top: 35px;
-            left: 50%;
-
-            transform: translateX(-50%);
-
-            font-size: 38px;
-
-            opacity: 0.25;
-        }
-
-        .hero-content {
-            max-width: 850px;
-        }
-
-        .hero h1 {
-            font-size: clamp(38px, 7vw, 70px);
-
-            font-weight: 600;
-
-            letter-spacing: 1px;
-
-            margin-bottom: 12px;
-        }
-
-        .hero-subtitle {
-            font-size: clamp(20px, 3vw, 27px);
-
-            color: #e7dfce;
-
-            letter-spacing: 1px;
-        }
-
-        .hero-line {
-            width: 90px;
-            height: 1px;
-
-            background: #d9c9a9;
-
-            margin: 28px auto;
-        }
-
-        .hero-quote {
-            font-size: 17px;
-
-            color: #ddd5c5;
-
-            font-style: italic;
-        }
-
-
-        /* =========================
-           NAVIGATION
-        ========================== */
-
-        .navbar {
-            position: sticky;
-            top: 0;
-
-            z-index: 1000;
-
-            background: rgba(255,255,255,0.94);
-
-            backdrop-filter: blur(12px);
-
-            border-bottom: 1px solid #ddd6c9;
-
-            box-shadow: 0 3px 15px rgba(0,0,0,0.05);
-        }
-
-        .nav-inner {
-            max-width: 1100px;
-
-            margin: auto;
-
-            display: flex;
-
-            align-items: center;
-
-            justify-content: space-between;
-
-            padding: 13px 18px;
-        }
-
-        .brand {
-            color: #30483e;
-
-            text-decoration: none;
-
-            font-weight: bold;
-
-            font-size: 19px;
-        }
-
-        .menu {
-            display: flex;
-
-            gap: 8px;
-
-            list-style: none;
-        }
-
-        .menu a {
-            text-decoration: none;
-
-            color: #45443f;
-
-            padding: 8px 12px;
-
-            border-radius: 20px;
-
-            transition: 0.25s;
-        }
-
-        .menu a:hover {
-            background: #e9e3d7;
-
-            color: #263d34;
-        }
-
-
-        /* =========================
-           MAIN
-        ========================== */
-
-        .container {
-            width: min(950px, 92%);
-
-            margin: auto;
-        }
-
-        section {
-            scroll-margin-top: 80px;
-        }
-
-        .section-heading {
-            text-align: center;
-
-            padding: 65px 15px 35px;
-        }
-
-        .section-heading h2 {
-            color: #30483e;
-
-            font-size: clamp(28px, 5vw, 40px);
-
-            margin-bottom: 8px;
-        }
-
-        .section-heading p {
-            color: #777267;
-
-            font-size: 16px;
-        }
-
-
-        /* =========================
-           SEARCH
-        ========================== */
-
-        .search-box {
-            max-width: 650px;
-
-            margin: 0 auto 45px;
-
-            position: relative;
-        }
-
-        .search-box input {
-            width: 100%;
-
-            padding: 15px 20px;
-
-            border-radius: 30px;
-
-            border: 1px solid #d8d0c2;
-
-            background: #fffdf8;
-
-            outline: none;
-
-            font-family: inherit;
-
-            font-size: 16px;
-
-            box-shadow:
-                0 5px 20px rgba(50,40,30,0.06);
-        }
-
-        .search-box input:focus {
-            border-color: #82978c;
-        }
-
-
-        /* =========================
-           POEM CARD
-        ========================== */
-
-        .poem-card {
-            background: #fffdf9;
-
-            border: 1px solid #e5ded1;
-
-            border-radius: 22px;
-
-            padding: clamp(25px, 5vw, 48px);
-
-            margin-bottom: 35px;
-
-            box-shadow:
-                0 12px 35px rgba(60,50,40,0.08);
-
-            position: relative;
-
-            overflow: hidden;
-        }
-
-        .poem-card::before {
-            content: "";
-
-            position: absolute;
-
-            left: 0;
-            top: 0;
-
-            width: 5px;
-            height: 100%;
-
-            background: #789083;
-        }
-
-        .poem-number {
-            text-align: center;
-
-            color: #8b806f;
-
-            font-size: 13px;
-
-            letter-spacing: 2px;
-
-            margin-bottom: 7px;
-
-            text-transform: uppercase;
-        }
-
-        .poem-title {
-            text-align: center;
-
-            color: #5b4030;
-
-            font-size: clamp(25px, 5vw, 35px);
-
-            line-height: 1.45;
-
-            margin-bottom: 32px;
-        }
-
-        .stanza {
-            text-align: center;
-
-            margin-bottom: 30px;
-        }
-
-        .stanza:last-child {
-            margin-bottom: 0;
-        }
-
-        .stanza-line {
-            display: block;
-
-            font-size: clamp(18px, 3vw, 21px);
-
-            line-height: 2;
-
-            color: #302e2a;
-        }
-
-        .author {
-            text-align: right;
-
-            margin-top: 35px;
-
-            color: #66594d;
-
-            font-size: 17px;
-
-            font-style: italic;
-        }
-
-
-        /* =========================
-           POEM ACTIONS
-        ========================== */
-
-        .poem-actions {
-            display: flex;
-
-            justify-content: center;
-
-            gap: 10px;
-
-            margin-top: 28px;
-
-            flex-wrap: wrap;
-        }
-
-        .action-btn {
-            border: 1px solid #d8d0c2;
-
-            background: #f7f3eb;
-
-            color: #435249;
-
-            border-radius: 22px;
-
-            padding: 8px 15px;
-
-            cursor: pointer;
-
-            font-family: inherit;
-
-            font-size: 14px;
-
-            transition: 0.25s;
-        }
-
-        .action-btn:hover {
-            background: #e6eee9;
-
-            transform: translateY(-1px);
-        }
-
-
-        /* =========================
-           ABOUT
-        ========================== */
-
-        .about-card {
-            background: #e9eee9;
-
-            border: 1px solid #d4ded8;
-
-            border-radius: 22px;
-
-            padding: 35px;
-
-            text-align: center;
-
-            margin: 20px 0 70px;
-        }
-
-        .about-card h2 {
-            color: #30483e;
-
-            margin-bottom: 12px;
-        }
-
-        .about-card p {
-            color: #555951;
-
-            max-width: 700px;
-
-            margin: auto;
-        }
-
-
-        /* =========================
-           FOOTER
-        ========================== */
-
-        footer {
-            background: #24352f;
-
-            color: #d8ded9;
-
-            text-align: center;
-
-            padding: 40px 20px;
-        }
-
-        footer .footer-name {
-            font-size: 23px;
-
-            color: #fff;
-
-            margin-bottom: 5px;
-        }
-
-        footer p {
-            font-size: 14px;
-
-            opacity: 0.8;
-        }
-
-
-        /* =========================
-           BACK TO TOP
-        ========================== */
-
-        #topButton {
-            position: fixed;
-
-            right: 18px;
-            bottom: 18px;
-
-            width: 45px;
-            height: 45px;
-
-            border: none;
-
-            border-radius: 50%;
-
-            background: #30483e;
-
-            color: white;
-
-            font-size: 20px;
-
-            cursor: pointer;
-
-            box-shadow: 0 5px 18px rgba(0,0,0,0.18);
-
-            opacity: 0;
-
-            pointer-events: none;
-
-            transition: 0.3s;
-
-            z-index: 1001;
-        }
-
-        #topButton.show {
-            opacity: 1;
-
-            pointer-events: auto;
-        }
-
-
-        /* =========================
-           MOBILE
-        ========================== */
-
-        @media (max-width: 650px) {
-
-            .hero {
-                min-height: 390px;
-
-                padding: 65px 18px;
-            }
-
-            .nav-inner {
-                flex-direction: column;
-
-                gap: 8px;
-            }
-
-            .menu {
-                width: 100%;
-
-                justify-content: center;
-
-                flex-wrap: wrap;
-            }
-
-            .menu a {
-                font-size: 14px;
-
-                padding: 6px 10px;
-            }
-
-            .poem-card {
-                padding: 27px 20px;
-            }
-
-            .poem-card::before {
-                width: 3px;
-            }
-
-            .stanza {
-                margin-bottom: 26px;
-            }
-
-            .stanza-line {
-                font-size: 18px;
-
-                line-height: 1.9;
-            }
-
-            .author {
-                font-size: 16px;
-
-                margin-top: 28px;
-            }
-
-            .about-card {
-                padding: 28px 20px;
-            }
-        }
-
-    </style>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>प्रशांत गाहिरे | स्वरचित कविताएँ</title>
+
+<meta name="description" content="प्रशांत गाहिरे की स्वरचित कविताएँ">
+
+<style>
+
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+}
+
+html{
+    scroll-behavior:smooth;
+}
+
+body{
+    font-family:
+        "Noto Serif Devanagari",
+        "Nirmala UI",
+        Georgia,
+        serif;
+    background:#f4f0e8;
+    color:#352f2a;
+    line-height:1.9;
+}
+
+/* ===== HERO ===== */
+
+.hero{
+    min-height:520px;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    text-align:center;
+    padding:60px 20px;
+    color:white;
+
+    background:
+        radial-gradient(circle at 50% 10%,
+        #64796e 0%,
+        #40574d 40%,
+        #24362f 100%);
+}
+
+.hero-content{
+    max-width:850px;
+}
+
+.profile-photo{
+    width:165px;
+    height:165px;
+    object-fit:cover;
+    border-radius:50%;
+    border:5px solid rgba(255,255,255,.92);
+    box-shadow:0 14px 38px rgba(0,0,0,.38);
+    margin-bottom:22px;
+}
+
+.hero h1{
+    font-size:clamp(40px,7vw,70px);
+    font-weight:600;
+    letter-spacing:1px;
+}
+
+.hero-line{
+    width:85px;
+    height:1px;
+    background:#d8c9ae;
+    margin:20px auto;
+}
+
+.subtitle{
+    font-size:clamp(22px,4vw,30px);
+    color:#e6ded2;
+}
+
+.hero-note{
+    margin-top:12px;
+    color:#d4cec4;
+    font-size:16px;
+    font-style:italic;
+}
+
+/* ===== NAV ===== */
+
+nav{
+    position:sticky;
+    top:0;
+    z-index:1000;
+    background:rgba(255,253,248,.97);
+    border-bottom:1px solid #ddd4c8;
+    box-shadow:0 4px 18px rgba(40,30,20,.08);
+}
+
+.nav-inner{
+    max-width:1000px;
+    margin:auto;
+    display:flex;
+    justify-content:center;
+    flex-wrap:wrap;
+}
+
+nav a{
+    text-decoration:none;
+    color:#51483f;
+    padding:13px 20px;
+    transition:.25s;
+}
+
+nav a:hover{
+    background:#e8e1d6;
+    color:#355246;
+}
+
+/* ===== MAIN ===== */
+
+.container{
+    width:min(950px,92%);
+    margin:auto;
+}
+
+.heading{
+    text-align:center;
+    padding:65px 10px 35px;
+}
+
+.heading h2{
+    color:#3c574b;
+    font-size:clamp(30px,5vw,42px);
+}
+
+.heading p{
+    color:#7c746b;
+    margin-top:5px;
+}
+
+/* ===== SEARCH ===== */
+
+.search{
+    max-width:650px;
+    margin:0 auto 45px;
+}
+
+.search input{
+    width:100%;
+    padding:15px 20px;
+    border-radius:30px;
+    border:1px solid #d7cec2;
+    background:#fffdf9;
+    outline:none;
+    font-family:inherit;
+    font-size:16px;
+}
+
+/* ===== POEMS ===== */
+
+.poem-card{
+    background:#fffdf9;
+    border:1px solid #e4dbcf;
+    border-radius:24px;
+    padding:45px clamp(22px,6vw,55px);
+    margin-bottom:42px;
+    box-shadow:0 12px 35px rgba(60,48,38,.08);
+    position:relative;
+    overflow:hidden;
+}
+
+.poem-card::before{
+    content:"";
+    position:absolute;
+    left:0;
+    top:0;
+    width:5px;
+    height:100%;
+    background:#789184;
+}
+
+.poem-number{
+    text-align:center;
+    color:#9b8e7f;
+    font-size:13px;
+    letter-spacing:2px;
+    margin-bottom:5px;
+}
+
+.poem-title{
+    text-align:center;
+    color:#604837;
+    font-size:clamp(26px,5vw,36px);
+    margin-bottom:35px;
+    line-height:1.5;
+}
+
+/* पहली कविता — बायाँ alignment */
+
+.poem-first .poem-text{
+    text-align:left;
+}
+
+/* दूसरी कविता — केंद्र alignment */
+
+.poem-second .poem-text{
+    text-align:center;
+}
+
+.poem-text{
+    font-size:clamp(18px,3vw,21px);
+    color:#302b27;
+}
+
+.stanza{
+    margin-bottom:27px;
+}
+
+.stanza:last-child{
+    margin-bottom:0;
+}
+
+.line{
+    display:block;
+    line-height:2;
+}
+
+.poem-first .line{
+    text-align:left;
+}
+
+.poem-second .line{
+    text-align:center;
+}
+
+.author{
+    text-align:right;
+    margin-top:32px;
+    color:#6b5748;
+    font-size:17px;
+    font-style:italic;
+}
+
+/* ===== BUTTONS ===== */
+
+.actions{
+    display:flex;
+    justify-content:center;
+    gap:10px;
+    flex-wrap:wrap;
+    margin-top:28px;
+}
+
+.action-btn{
+    border:1px solid #d7cdc0;
+    background:#f3ede4;
+    color:#4b514b;
+    border-radius:25px;
+    padding:8px 17px;
+    cursor:pointer;
+    font-family:inherit;
+    font-size:14px;
+    transition:.25s;
+}
+
+.action-btn:hover{
+    background:#e3ece7;
+}
+
+.like-btn.liked{
+    background:#ead0d0;
+}
+
+/* ===== COMMENTS ===== */
+
+.comment-box{
+    display:none;
+    max-width:700px;
+    margin:24px auto 0;
+    padding-top:20px;
+    border-top:1px solid #e4dbd0;
+}
+
+.comment-box textarea{
+    width:100%;
+    min-height:90px;
+    resize:vertical;
+    padding:13px;
+    border:1px solid #d7cdc0;
+    border-radius:15px;
+    background:white;
+    font-family:inherit;
+    outline:none;
+}
+
+.comment-box button{
+    margin-top:9px;
+    border:0;
+    border-radius:20px;
+    padding:9px 18px;
+    background:#40584e;
+    color:white;
+    cursor:pointer;
+    font-family:inherit;
+}
+
+.comment{
+    background:#f1ece4;
+    border-radius:13px;
+    padding:10px 14px;
+    margin-top:8px;
+}
+
+/* ===== ABOUT ===== */
+
+.about{
+    background:#e6ece7;
+    border-top:1px solid #d3ddd6;
+    padding:70px 20px;
+    text-align:center;
+}
+
+.about-inner{
+    max-width:760px;
+    margin:auto;
+}
+
+.about h2{
+    color:#385247;
+    font-size:36px;
+    margin-bottom:20px;
+}
+
+.about p{
+    color:#555b56;
+    font-size:18px;
+    line-height:2.1;
+}
+
+/* ===== FOOTER ===== */
+
+footer{
+    background:#24352f;
+    color:#d7dfda;
+    text-align:center;
+    padding:35px 20px;
+}
+
+footer strong{
+    color:white;
+}
+
+/* ===== TOP BUTTON ===== */
+
+#top{
+    position:fixed;
+    right:18px;
+    bottom:18px;
+    width:45px;
+    height:45px;
+    border:0;
+    border-radius:50%;
+    background:#40584e;
+    color:white;
+    font-size:20px;
+    cursor:pointer;
+    opacity:0;
+    pointer-events:none;
+    transition:.3s;
+    z-index:2000;
+}
+
+#top.show{
+    opacity:1;
+    pointer-events:auto;
+}
+
+/* ===== MOBILE ===== */
+
+@media(max-width:600px){
+
+    .hero{
+        min-height:460px;
+    }
+
+    .profile-photo{
+        width:130px;
+        height:130px;
+    }
+
+    nav a{
+        padding:10px 12px;
+        font-size:14px;
+    }
+
+    .poem-card{
+        padding:32px 20px;
+        border-radius:20px;
+    }
+
+    .poem-card::before{
+        width:3px;
+    }
+
+    .poem-text{
+        font-size:18px;
+    }
+
+    .line{
+        line-height:1.9;
+    }
+}
+
+</style>
 </head>
 
 
 <body>
 
 
-<!-- =========================================
-     HERO
-========================================= -->
+<!-- ===== HEADER ===== -->
 
 <header class="hero" id="home">
 
     <div class="hero-content">
 
+        <img
+            src="pic.jpeg"
+            alt="प्रशांत गाहिरे"
+            class="profile-photo"
+        >
+
         <h1>प्रशांत गाहिरे</h1>
 
         <div class="hero-line"></div>
 
-        <div class="hero-subtitle">
+        <div class="subtitle">
             स्वरचित कविताएँ
         </div>
 
-        <p class="hero-quote">
-            शब्दों में कुछ भाव,
-            भावों में कुछ जीवन...
-        </p>
+        <div class="hero-note">
+            शब्दों में भावनाएँ • भावनाओं में जीवन
+        </div>
 
     </div>
 
 </header>
 
 
-<!-- =========================================
-     NAVIGATION
-========================================= -->
+<!-- ===== MENU ===== -->
 
-<nav class="navbar">
+<nav>
 
     <div class="nav-inner">
 
-        <a href="#home" class="brand">
-            प्रशांत गाहिरे
-        </a>
+        <a href="#home">⌂ होम</a>
 
-        <ul class="menu">
+        <a href="#poems">📖 कविताएँ</a>
 
-            <li>
-                <a href="#home">⌂ होम</a>
-            </li>
-
-            <li>
-                <a href="#poems">📖 कविताएँ</a>
-            </li>
-
-            <li>
-                <a href="#about">✦ मेरे बारे में</a>
-            </li>
-
-        </ul>
+        <a href="#about">✦ मेरे बारे में</a>
 
     </div>
 
 </nav>
 
 
-<!-- =========================================
-     POEMS
-========================================= -->
+<!-- ===== POEMS ===== -->
 
 <main id="poems">
 
-    <div class="container">
+<div class="container">
 
-        <div class="section-heading">
+    <div class="heading">
 
-            <h2>मेरी कविताएँ</h2>
+        <h2>मेरी कविताएँ</h2>
 
-            <p>
-                कुछ शब्द, कुछ एहसास, कुछ अनकहे संवाद...
-            </p>
-
-        </div>
-
-
-        <!-- SEARCH -->
-
-        <div class="search-box">
-
-            <input
-                type="search"
-                id="searchInput"
-                placeholder="🔎 कविता खोजें..."
-                aria-label="कविता खोजें"
-            >
-
-        </div>
-
-
-        <!--
-        ==================================================
-        कविताएँ यहाँ से शुरू होती हैं।
-
-        नई कविता जोड़ने के लिए नीचे दिए गए
-        poems array में एक नया object जोड़ें।
-        ==================================================
-        -->
-
-        <div id="poemContainer"></div>
-
-        <div
-            id="noResults"
-            style="
-                display:none;
-                text-align:center;
-                color:#777;
-                padding:30px;
-            "
-        >
-            इस नाम से कोई कविता नहीं मिली।
-        </div>
+        <p>
+            कुछ शब्द, कुछ एहसास और जीवन के कुछ अनकहे पल...
+        </p>
 
     </div>
+
+
+    <div class="search">
+
+        <input
+            id="search"
+            type="search"
+            placeholder="🔎 कविता खोजें..."
+        >
+
+    </div>
+
+
+    <!-- ===== कविता 1 ===== -->
+
+    <article class="poem-card poem-first">
+
+        <div class="poem-number">
+            कविता — ०१
+        </div>
+
+        <h2 class="poem-title">
+            कई जन्मों का मैं प्यासा हूँ
+        </h2>
+
+        <div class="poem-text">
+
+            <div class="stanza">
+
+                <span class="line">
+                    कई जन्मों का मैं प्यासा हूंँ, कुछ पाने की है प्यास मुझे।
+                </span>
+
+                <span class="line">
+                    भटक रहा कई मुद्दत से, घर लौटूंगा विश्वास मुझे।।
+                </span>
+
+            </div>
+
+
+            <div class="stanza">
+
+                <span class="line">
+                    तुम चाहो तो बढ़ जाना, मैं परिश्रांत मुसाफिर हूंँ।
+                </span>
+
+                <span class="line">
+                    कई रातों का मैं जगा हुआ, सोने नहीं देते ख़्वाब मुझे।।
+                </span>
+
+            </div>
+
+        </div>
+
+        <div class="author">
+            — प्रशांत गाहिरे
+        </div>
+
+
+        <div class="actions">
+
+            <button
+                class="action-btn like-btn"
+                onclick="likePoem(this,1)"
+            >
+                ❤️ पसंद <span>0</span>
+            </button>
+
+            <button
+                class="action-btn"
+                onclick="comments(1)"
+            >
+                💬 प्रतिक्रिया
+            </button>
+
+            <button
+                class="action-btn"
+                onclick="sharePoem(1)"
+            >
+                ↗ साझा करें
+            </button>
+
+        </div>
+
+
+        <div
+            class="comment-box"
+            id="comment1"
+        >
+
+            <textarea
+                placeholder="अपनी प्रतिक्रिया लिखें..."
+            ></textarea>
+
+            <button onclick="addComment(1)">
+                टिप्पणी जोड़ें
+            </button>
+
+            <div class="comment-list"></div>
+
+        </div>
+
+    </article>
+
+
+    <!-- ===== कविता 2 ===== -->
+
+    <article class="poem-card poem-second">
+
+        <div class="poem-number">
+            कविता — ०२
+        </div>
+
+        <h2 class="poem-title">
+            हाथों में हाथ तुम्हारा लेकर
+        </h2>
+
+        <div class="poem-text">
+
+
+            <div class="stanza">
+
+                <span class="line">
+                    संसार सकल और चराचर
+                </span>
+
+                <span class="line">
+                    चिरकाल रहा कौन धरा पर?
+                </span>
+
+            </div>
+
+
+            <div class="stanza">
+
+                <span class="line">
+                    सब कुछ पाने की लोलुपता है,
+                </span>
+
+                <span class="line">
+                    मानव जीवन है ज़रा पर।
+                </span>
+
+            </div>
+
+
+            <div class="stanza">
+
+                <span class="line">
+                    करतब हमने भी हज़ार किए,
+                </span>
+
+                <span class="line">
+                    कर्त्तव्य लिए क़िरदार जिए।
+                </span>
+
+            </div>
+
+
+            <div class="stanza">
+
+                <span class="line">
+                    कभी तकलीफों ने शोर किया,
+                </span>
+
+                <span class="line">
+                    कभी उत्सव ने झंकार किए।
+                </span>
+
+            </div>
+
+
+            <div class="stanza">
+
+                <span class="line">
+                    निष्काम करें हम प्यार प्रिये,
+                </span>
+
+                <span class="line">
+                    जग-जीवन का ये सार प्रिये।
+                </span>
+
+            </div>
+
+
+            <div class="stanza">
+
+                <span class="line">
+                    उहापोह या उथल-पुथल हो,
+                </span>
+
+                <span class="line">
+                    चाहे नैया मझधार प्रिये।
+                </span>
+
+            </div>
+
+
+            <div class="stanza">
+
+                <span class="line">
+                    हाथों में हाथ तुम्हारा लेकर,
+                </span>
+
+                <span class="line">
+                    जाना है उस पार प्रिये।।
+                </span>
+
+            </div>
+
+        </div>
+
+
+        <div class="author">
+            — प्रशांत गाहिरे
+        </div>
+
+
+        <div class="actions">
+
+            <button
+                class="action-btn like-btn"
+                onclick="likePoem(this,2)"
+            >
+                ❤️ पसंद <span>0</span>
+            </button>
+
+            <button
+                class="action-btn"
+                onclick="comments(2)"
+            >
+                💬 प्रतिक्रिया
+            </button>
+
+            <button
+                class="action-btn"
+                onclick="sharePoem(2)"
+            >
+                ↗ साझा करें
+            </button>
+
+        </div>
+
+
+        <div
+            class="comment-box"
+            id="comment2"
+        >
+
+            <textarea
+                placeholder="अपनी प्रतिक्रिया लिखें..."
+            ></textarea>
+
+            <button onclick="addComment(2)">
+                टिप्पणी जोड़ें
+            </button>
+
+            <div class="comment-list"></div>
+
+        </div>
+
+    </article>
+
+
+    <div
+        id="noResult"
+        style="
+            display:none;
+            text-align:center;
+            padding:30px;
+            color:#777;
+        "
+    >
+        कोई कविता नहीं मिली।
+    </div>
+
+</div>
 
 </main>
 
 
-<!-- =========================================
-     ABOUT
-========================================= -->
+<!-- ===== ABOUT ===== -->
 
-<section id="about">
+<section class="about" id="about">
 
-    <div class="container">
+    <div class="about-inner">
 
-        <div class="section-heading">
+        <h2>मेरे बारे में</h2>
 
-            <h2>मेरे बारे में</h2>
+        <p>
+            मैं प्रशांत गाहिरे हूँ।
+            शब्दों और भावनाओं के माध्यम से जीवन को
+            देखने और महसूस करने का प्रयास करता हूँ।
+            यह पृष्ठ मेरी स्वरचित कविताओं का एक छोटा-सा संसार है।
+        </p>
 
-            <p>शब्दों से मन तक की एक छोटी-सी यात्रा</p>
-
-        </div>
-
-
-        <div class="about-card">
-
-            <h2>प्रशांत गाहिरे</h2>
-
-            <p>
-                यह पृष्ठ मेरी स्वरचित कविताओं का एक छोटा-सा संसार है।
-                यहाँ लिखे शब्द मेरे अनुभवों, भावनाओं और विचारों की
-                अभिव्यक्ति हैं।
-            </p>
-
-        </div>
+        <p style="margin-top:16px;">
+            यदि मेरी कोई पंक्ति आपके मन को छू जाए,
+            तो समझूँगा कि मेरे शब्दों को अपना अर्थ मिल गया।
+        </p>
 
     </div>
 
 </section>
 
 
-<!-- =========================================
-     FOOTER
-========================================= -->
+<!-- ===== FOOTER ===== -->
 
 <footer>
 
-    <div class="footer-name">
-        प्रशांत गाहिरे
-    </div>
-
     <p>
-        स्वरचित कविताएँ · शब्दों से मन तक
+        © 2026 <strong>प्रशांत गाहिरे</strong>
     </p>
 
-    <p style="margin-top:12px;">
-        © 2026 प्रशांत गाहिरे
+    <p>
+        स्वरचित कविताएँ • शब्दों से मन तक
     </p>
 
 </footer>
 
 
-<!-- BACK TO TOP -->
-
-<button id="topButton" title="ऊपर जाएँ">
+<button id="top" onclick="window.scrollTo({top:0,behavior:'smooth'})">
     ↑
 </button>
 
 
 <script>
 
-    /* ==================================================
-       ⭐⭐⭐ अपनी कविताएँ यहाँ जोड़ें ⭐⭐⭐
+/* =========================
+   SEARCH
+========================= */
 
-       नई कविता जोड़ने के लिए नीचे जैसा एक नया
-       object बनाना है।
+const search =
+    document.getElementById("search");
 
-       title = कविता का शीर्षक
+const cards =
+    document.querySelectorAll(".poem-card");
 
-       stanzas = कविता के बंद
-
-       हर बंद में lines की सूची है।
-
-       ================================================== */
-
-
-    const poems = [
-
-        /* =========================
-           कविता 1
-        ========================== */
-
-        {
-            title: "कई जन्मों का मैं प्यासा हूँ",
-
-            stanzas: [
-
-                [
-                    "कई जन्मों का मैं प्यासा हूँ,",
-                    "कुछ पाने की है प्यास मुझे।",
-                    "कई मुद्दत से मैं भटक रहा,",
-                    "घर लौटूंगा विश्वास मुझे।।"
-                ],
-
-                [
-                    "तू चाहे तो बढ़ जाना,",
-                    "मैं परिश्रांत मुसाफिर हूँ।",
-                    "कई रातों का मैं जगा हुआ,",
-                    "सोने नहीं देते ख़्वाब मुझे।।"
-                ]
-
-            ]
-        },
+const noResult =
+    document.getElementById("noResult");
 
 
-        /* =========================
-           कविता 2
-        ========================== */
+search.addEventListener("input",function(){
 
-        {
-            title: "हाथों में हाथ तुम्हारा लेकर",
+    const value =
+        this.value.toLowerCase().trim();
 
-            stanzas: [
+    let found = 0;
 
-                [
-                    "हाथों में हाथ तुम्हारा लेकर,",
-                    "जाना है उस पार प्रिये।।"
-                ],
+    cards.forEach(card=>{
 
-                [
-                    "संसार सकल और चराचर",
-                    "चिरकाल रहा कौन धरा पर?",
+        const text =
+            card.innerText.toLowerCase();
 
-                    "सब कुछ पाने की लोलुपता है,",
-                    "मानव जीवन है ज़रा पर।"
-                ],
+        if(text.includes(value)){
 
-                [
-                    "करतब हमने भी हज़ार किए,",
-                    "कर्त्तव्य लिए क़िरदार जिए।",
+            card.style.display="block";
+            found++;
 
-                    "कभी तकलीफों ने शोर किया,",
-                    "कभी उत्सव ने झंकार किए।"
-                ],
+        }else{
 
-                [
-                    "निष्काम करें हम प्यार प्रिये,",
-                    "जग-जीवन का ये सार प्रिये।",
-
-                    "उहापोह या उथल-पुथल हो,",
-                    "चाहे नैया मझधार प्रिये।"
-                ],
-
-                [
-                    "हाथों में हाथ तुम्हारा लेकर,",
-                    "जाना है उस पार प्रिये।।"
-                ]
-
-            ]
-        }
-
-    ];
-
-
-    /* ==================================================
-       कविता दिखाने का function
-    ================================================== */
-
-    const poemContainer =
-        document.getElementById("poemContainer");
-
-    const noResults =
-        document.getElementById("noResults");
-
-
-    function showPoems(list) {
-
-        poemContainer.innerHTML = "";
-
-        if (list.length === 0) {
-
-            noResults.style.display = "block";
-
-            return;
+            card.style.display="none";
 
         }
-
-        noResults.style.display = "none";
-
-
-        list.forEach((poem, index) => {
-
-            const card =
-                document.createElement("article");
-
-            card.className = "poem-card";
-
-            card.id = "poem-" + (index + 1);
-
-
-            let stanzaHTML = "";
-
-
-            poem.stanzas.forEach(stanza => {
-
-                stanzaHTML +=
-                    `<div class="stanza">`;
-
-                stanza.forEach(line => {
-
-                    if (line.trim() === "") {
-
-                        stanzaHTML +=
-                            `<div style="height:12px;"></div>`;
-
-                    } else {
-
-                        stanzaHTML +=
-                            `<span class="stanza-line">${escapeHTML(line)}</span>`;
-
-                    }
-
-                });
-
-                stanzaHTML +=
-                    `</div>`;
-
-            });
-
-
-            card.innerHTML = `
-
-                <div class="poem-number">
-                    कविता ${index + 1}
-                </div>
-
-                <h2 class="poem-title">
-                    ${escapeHTML(poem.title)}
-                </h2>
-
-                ${stanzaHTML}
-
-                <div class="author">
-                    — प्रशांत गाहिरे
-                </div>
-
-                <div class="poem-actions">
-
-                    <button
-                        class="action-btn"
-                        onclick="sharePoem(${index})"
-                    >
-                        ↗ साझा करें
-                    </button>
-
-                    <button
-                        class="action-btn"
-                        onclick="copyPoem(${index})"
-                    >
-                        ⧉ कविता कॉपी करें
-                    </button>
-
-                </div>
-
-            `;
-
-
-            poemContainer.appendChild(card);
-
-        });
-
-    }
-
-
-    /* ==================================================
-       सुरक्षित text display
-    ================================================== */
-
-    function escapeHTML(text) {
-
-        return text
-            .replace(/&/g, "&amp;")
-            .replace(/</g, "&lt;")
-            .replace(/>/g, "&gt;")
-            .replace(/"/g, "&quot;")
-            .replace(/'/g, "&#039;");
-
-    }
-
-
-    /* ==================================================
-       Search
-    ================================================== */
-
-    const searchInput =
-        document.getElementById("searchInput");
-
-
-    searchInput.addEventListener("input", function() {
-
-        const query =
-            this.value.trim().toLowerCase();
-
-        const filtered =
-            poems.filter(poem => {
-
-                const fullText =
-                    poem.title +
-                    " " +
-                    poem.stanzas
-                        .flat()
-                        .join(" ");
-
-                return fullText
-                    .toLowerCase()
-                    .includes(query);
-
-            });
-
-        showPoems(filtered);
 
     });
 
 
-    /* ==================================================
-       Share
-    ================================================== */
+    noResult.style.display =
+        found === 0 ? "block" : "none";
 
-    function sharePoem(index) {
-
-        const poem = poems[index];
-
-        const text =
-            poem.title +
-            "\n\n" +
-            poem.stanzas
-                .map(stanza => stanza.join("\n"))
-                .join("\n\n") +
-            "\n\n— प्रशांत गाहिरे";
+});
 
 
-        if (navigator.share) {
+/* =========================
+   LIKE
+========================= */
 
-            navigator.share({
+function likePoem(button,id){
 
-                title: poem.title,
+    const liked =
+        localStorage.getItem("liked-"+id);
 
-                text: text,
+    if(liked){
+        return;
+    }
 
-                url: window.location.href
+    let count =
+        Number(
+            localStorage.getItem("likes-"+id) || 0
+        );
 
-            });
+    count++;
 
-        } else {
+    localStorage.setItem(
+        "likes-"+id,
+        count
+    );
 
-            copyText(text);
+    localStorage.setItem(
+        "liked-"+id,
+        "yes"
+    );
 
-            alert(
-                "कविता कॉपी हो गई है। अब आप इसे जहाँ चाहें साझा कर सकते हैं।"
+    button.querySelector("span").innerText =
+        count;
+
+    button.classList.add("liked");
+
+}
+
+
+function loadLikes(){
+
+    document.querySelectorAll(".like-btn")
+    .forEach((button,index)=>{
+
+        const id=index+1;
+
+        const count =
+            Number(
+                localStorage.getItem("likes-"+id) || 0
             );
 
+        button.querySelector("span").innerText =
+            count;
+
+        if(
+            localStorage.getItem("liked-"+id)
+        ){
+            button.classList.add("liked");
         }
 
+    });
+
+}
+
+
+/* =========================
+   COMMENTS
+========================= */
+
+function comments(id){
+
+    const box =
+        document.getElementById(
+            "comment"+id
+        );
+
+    if(box.style.display==="block"){
+
+        box.style.display="none";
+
+    }else{
+
+        box.style.display="block";
+
+    }
+
+}
+
+
+function addComment(id){
+
+    const box =
+        document.getElementById(
+            "comment"+id
+        );
+
+    const textarea =
+        box.querySelector("textarea");
+
+    const text =
+        textarea.value.trim();
+
+    if(!text){
+
+        alert(
+            "कृपया अपनी प्रतिक्रिया लिखें।"
+        );
+
+        return;
+
     }
 
 
-    /* ==================================================
-       Copy
-    ================================================== */
+    const item =
+        document.createElement("div");
 
-    function copyPoem(index) {
+    item.className="comment";
 
-        const poem = poems[index];
+    item.textContent=text;
 
-        const text =
-            poem.title +
-            "\n\n" +
-            poem.stanzas
-                .map(stanza => stanza.join("\n"))
-                .join("\n\n") +
-            "\n\n— प्रशांत गाहिरे";
+    box.querySelector(".comment-list")
+       .appendChild(item);
+
+    textarea.value="";
+
+}
 
 
-        copyText(text);
+/* =========================
+   SHARE
+========================= */
 
-        alert("कविता कॉपी हो गई है।");
+function sharePoem(id){
+
+    let text="";
+
+    if(id===1){
+
+        text =
+`कई जन्मों का मैं प्यासा हूँ
+
+कई जन्मों का मैं प्यासा हूंँ, कुछ पाने की है प्यास मुझे।
+भटक रहा कई मुद्दत से, घर लौटूंगा विश्वास मुझे।।
+
+तुम चाहो तो बढ़ जाना, मैं परिश्रांत मुसाफिर हूंँ।
+कई रातों का मैं जगा हुआ, सोने नहीं देते ख़्वाब मुझे।।
+
+— प्रशांत गाहिरे`;
 
     }
 
 
-    function copyText(text) {
+    if(id===2){
+
+        text =
+`हाथों में हाथ तुम्हारा लेकर
+
+संसार सकल और चराचर
+चिरकाल रहा कौन धरा पर?
+
+सब कुछ पाने की लोलुपता है,
+मानव जीवन है ज़रा पर।
+
+करतब हमने भी हज़ार किए,
+कर्त्तव्य लिए क़िरदार जिए।
+
+कभी तकलीफों ने शोर किया,
+कभी उत्सव ने झंकार किए।
+
+निष्काम करें हम प्यार प्रिये,
+जग-जीवन का ये सार प्रिये।
+
+उहापोह या उथल-पुथल हो,
+चाहे नैया मझधार प्रिये।
+
+हाथों में हाथ तुम्हारा लेकर,
+जाना है उस पार प्रिये।।
+
+— प्रशांत गाहिरे`;
+
+    }
+
+
+    if(navigator.share){
+
+        navigator.share({
+            title:"प्रशांत गाहिरे — स्वरचित कविता",
+            text:text,
+            url:window.location.href
+        });
+
+    }else{
 
         navigator.clipboard.writeText(text);
 
+        alert(
+            "कविता कॉपी हो गई है।"
+        );
+
     }
 
-
-    /* ==================================================
-       Back to top
-    ================================================== */
-
-    const topButton =
-        document.getElementById("topButton");
+}
 
 
-    window.addEventListener("scroll", function() {
+/* =========================
+   TOP BUTTON
+========================= */
 
-        if (window.scrollY > 400) {
-
-            topButton.classList.add("show");
-
-        } else {
-
-            topButton.classList.remove("show");
-
-        }
-
-    });
+const topButton =
+    document.getElementById("top");
 
 
-    topButton.addEventListener("click", function() {
+window.addEventListener("scroll",function(){
 
-        window.scrollTo({
+    if(window.scrollY>400){
 
-            top: 0,
+        topButton.classList.add("show");
 
-            behavior: "smooth"
+    }else{
 
-        });
+        topButton.classList.remove("show");
 
-    });
+    }
+
+});
 
 
-    /* ==================================================
-       शुरुआत में कविताएँ दिखाएँ
-    ================================================== */
+/* =========================
+   START
+========================= */
 
-    showPoems(poems);
+loadLikes();
 
 </script>
-
 
 </body>
 </html>
