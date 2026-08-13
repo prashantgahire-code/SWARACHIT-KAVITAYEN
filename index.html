@@ -54,11 +54,27 @@
         }
 
         .poem-text {
-            white-space: pre-line;
-            text-align: center;
-            font-size: 20px;
-            line-height: 2;
-        }
+    white-space: normal;
+    text-align: center;
+    font-size: 20px;
+    line-height: 1.9;
+}
+
+.stanza {
+    margin-bottom: 28px;
+}
+
+@media (max-width: 600px) {
+    .poem-text {
+        font-size: 18px;
+        line-height: 1.9;
+    }
+
+    .stanza {
+        margin-bottom: 24px;
+    }
+}
+        
 
         .author {
             text-align: right;
