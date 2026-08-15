@@ -6,15 +6,22 @@
 
 <title>प्रशांत गाहिरे | स्वरचित कविताएँ</title>
 
+<meta name="description" content="प्रशांत गाहिरे की स्वरचित कविताओं का साहित्यिक संसार">
+
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Noto+Serif+Devanagari:wght@400;500;600;700&display=swap" rel="stylesheet">
 
 <style>
+
+/* ==================================================
+   BASIC
+================================================== */
+
 *{
-    box-sizing:border-box;
     margin:0;
     padding:0;
+    box-sizing:border-box;
 }
 
 html{
@@ -22,234 +29,457 @@ html{
 }
 
 body{
-    background:#f5f1e8;
-    color:#302f2b;
     font-family:"Noto Serif Devanagari",serif;
+    color:#302c28;
+    background:#f7f3eb;
+    line-height:1.9;
 }
 
-/* HERO */
+
+/* ==================================================
+   TRICOLOUR BACKGROUND
+================================================== */
+
+body::before{
+    content:"";
+    position:fixed;
+    inset:0;
+    z-index:-3;
+
+    background:
+        linear-gradient(
+            to bottom,
+            rgba(255,153,51,.17) 0%,
+            rgba(255,153,51,.17) 33%,
+            rgba(255,255,255,.55) 33%,
+            rgba(255,255,255,.55) 67%,
+            rgba(19,136,8,.14) 67%,
+            rgba(19,136,8,.14) 100%
+        );
+}
+
+body::after{
+    content:"";
+    position:fixed;
+    left:50%;
+    top:50%;
+    transform:translate(-50%,-50%);
+
+    width:360px;
+    height:360px;
+
+    border:2px solid rgba(0,0,128,.045);
+    border-radius:50%;
+
+    box-shadow:
+        0 0 0 18px rgba(0,0,128,.025),
+        0 0 0 36px rgba(0,0,128,.018);
+
+    z-index:-2;
+    pointer-events:none;
+}
+
+
+/* ==================================================
+   HERO
+================================================== */
 
 .hero{
     min-height:88vh;
-    padding:55px 20px 70px;
+
     display:flex;
     justify-content:center;
     align-items:center;
+
     text-align:center;
 
+    padding:50px 18px;
+
     background:
-    linear-gradient(135deg,rgba(24,53,44,.94),rgba(35,72,61,.88)),
-    url("my page pic.jpeg");
+        linear-gradient(
+            135deg,
+            rgba(255,153,51,.92),
+            rgba(255,255,255,.96) 50%,
+            rgba(19,136,8,.88)
+        );
 
-    background-size:cover;
-    background-position:center;
-    background-attachment:fixed;
+    position:relative;
+    overflow:hidden;
 
-    color:white;
+    border-bottom:1px solid rgba(0,0,0,.08);
+}
+
+.hero::after{
+    content:"☸";
+
+    position:absolute;
+
+    left:50%;
+    top:50%;
+
+    transform:translate(-50%,-50%);
+
+    font-size:290px;
+
+    color:rgba(0,0,128,.045);
+
+    line-height:1;
+
+    pointer-events:none;
 }
 
 .hero-inner{
+    position:relative;
+    z-index:2;
+
     max-width:850px;
 }
 
-.profile-photo {
-    width: 180px;
-    height: 235px;
-    margin: 0 auto 25px;
-    overflow: hidden;
-    border-radius: 90px 90px 35px 35px;
-    border: 4px solid rgba(255,255,255,0.85);
-    box-shadow: 0 12px 35px rgba(0,0,0,0.25);
-    background: #eef1eb;
+
+/* ==================================================
+   PHOTO
+================================================== */
+
+.photo-frame{
+    width:175px;
+    height:220px;
+
+    margin:0 auto 25px;
+
+    padding:5px;
+
+    background:white;
+
+    border-radius:90px 90px 38px 38px;
+
+    box-shadow:
+        0 15px 40px rgba(0,0,0,.22),
+        0 0 0 7px rgba(255,255,255,.45);
+
+    overflow:hidden;
 }
 
-.profile-photo img {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-    object-position: center 10%;
-    display: block;
+.photo-frame img{
+    width:100%;
+    height:100%;
+
+    display:block;
+
+    object-fit:cover;
+
+    object-position:center 15%;
+
+    border-radius:82px 82px 32px 32px;
 }
+
 
 .hero h1{
-    font-size:clamp(42px,8vw,76px);
+    color:#263f34;
+
+    font-size:clamp(42px,9vw,76px);
+
     font-weight:700;
+
     letter-spacing:1px;
+
+    text-shadow:
+        0 2px 1px rgba(255,255,255,.65);
 }
 
 .hero-line{
     width:120px;
-    height:2px;
-    background:#d8c9a2;
-    margin:22px auto;
+    height:3px;
+
+    margin:20px auto;
+
+    background:
+        linear-gradient(
+            to right,
+            #ff9933,
+            #ffffff,
+            #138808
+        );
+
+    border-radius:5px;
 }
 
 .hero h2{
-    font-size:clamp(25px,5vw,40px);
-    font-weight:400;
-    color:#e9e0cd;
+    color:#263f34;
+
+    font-size:clamp(24px,5vw,38px);
+
+    font-weight:500;
 }
 
 .hero p{
-    margin-top:18px;
-    font-size:18px;
-    color:#d8d2c5;
+    margin-top:12px;
+
+    color:#514b43;
+
+    font-size:17px;
 }
 
-/* MENU */
+
+/* ==================================================
+   NAVIGATION
+================================================== */
 
 nav{
     position:sticky;
     top:0;
-    z-index:999;
+
+    z-index:1000;
+
     display:flex;
     justify-content:center;
-    gap:8px;
-    padding:10px;
-    background:rgba(255,253,247,.96);
+    flex-wrap:wrap;
+
+    gap:5px;
+
+    padding:9px 8px;
+
+    background:rgba(255,253,248,.94);
+
     backdrop-filter:blur(12px);
-    box-shadow:0 3px 18px rgba(0,0,0,.09);
+
+    box-shadow:
+        0 4px 20px rgba(0,0,0,.09);
+
+    border-bottom:1px solid rgba(0,0,0,.07);
 }
 
 nav a{
     text-decoration:none;
-    color:#315548;
-    padding:9px 18px;
+
+    color:#345348;
+
+    padding:8px 15px;
+
     border-radius:25px;
-    font-size:16px;
+
+    font-size:15px;
+
     transition:.25s;
 }
 
 nav a:hover{
-    background:#315548;
+    background:#345348;
     color:white;
 }
 
-/* MAIN */
+
+/* ==================================================
+   MAIN
+================================================== */
 
 main{
-    max-width:1050px;
+    width:min(950px,92%);
+
     margin:auto;
-    padding:75px 18px;
+
+    padding:70px 0;
 }
 
 .section-heading{
     text-align:center;
-    margin-bottom:55px;
+
+    margin-bottom:50px;
 }
 
 .section-heading h2{
-    color:#315548;
-    font-size:clamp(38px,7vw,58px);
+    color:#284d3d;
+
+    font-size:clamp(34px,7vw,55px);
 }
 
 .section-heading p{
-    color:#77736b;
-    font-size:17px;
     margin-top:8px;
+
+    color:#756f67;
+
+    font-size:16px;
 }
 
-/* POEM */
+
+/* ==================================================
+   POEM CARD
+================================================== */
 
 .poem-card{
-    background:#fffdf8;
-    border-radius:28px;
-    padding:55px 35px;
-    margin-bottom:55px;
-    box-shadow:0 18px 55px rgba(48,45,35,.11);
-    border:1px solid rgba(70,65,55,.08);
     position:relative;
-    overflow:hidden;
+
+    background:
+        rgba(255,253,248,.95);
+
+    border-radius:26px;
+
+    padding:42px clamp(18px,6vw,55px);
+
+    margin-bottom:48px;
+
+    border:1px solid rgba(80,70,55,.12);
+
+    box-shadow:
+        0 15px 45px rgba(62,52,38,.10);
 }
 
 .poem-card::before{
     content:"";
+
     position:absolute;
+
     top:0;
     left:0;
     right:0;
+
     height:5px;
-    background:#315548;
+
+    border-radius:26px 26px 0 0;
+
+    background:
+        linear-gradient(
+            to right,
+            #ff9933 0%,
+            #ff9933 33%,
+            #ffffff 33%,
+            #ffffff 67%,
+            #138808 67%,
+            #138808 100%
+        );
 }
 
 .poem-number{
     text-align:center;
-    color:#8d8068;
-    font-size:15px;
+
+    color:#9a866e;
+
+    font-size:13px;
+
     letter-spacing:2px;
-    margin-bottom:8px;
+
+    margin-bottom:7px;
 }
 
 .poem-title{
     text-align:center;
-    color:#315548;
-    font-size:clamp(27px,5vw,40px);
+
+    color:#315547;
+
+    font-size:clamp(26px,6vw,38px);
+
     font-weight:600;
-    margin-bottom:42px;
+
+    margin-bottom:34px;
+
+    line-height:1.5;
 }
 
-/*
-   IMPORTANT:
-   प्रत्येक पंक्ति को अलग block रखा गया है।
-   इससे कविता का मूल stanza नहीं बिगड़ेगा।
-*/
+
+/* ==================================================
+   POEM TEXT
+================================================== */
 
 .poem{
     text-align:center;
-    font-size:clamp(19px,2.5vw,25px);
-    line-height:2.15;
+
+    font-size:clamp(18px,4.4vw,23px);
+
+    line-height:2.05;
+
+    color:#302d29;
 }
 
 .stanza{
-    margin-bottom:30px;
+    margin-bottom:25px;
 }
 
-.line{
-    display:block;
+.stanza:last-child{
+    margin-bottom:0;
 }
+
+.poem-line{
+    display:block;
+
+    white-space:normal;
+}
+
+
+/* ==================================================
+   AUTHOR
+================================================== */
 
 .author{
     text-align:right;
-    margin-top:35px;
-    color:#315548;
-    font-size:20px;
-    font-weight:600;
+
+    color:#53695d;
+
+    font-size:17px;
+
+    margin-top:28px;
+
+    font-style:italic;
 }
 
-/* BUTTONS */
+
+/* ==================================================
+   ACTIONS
+================================================== */
 
 .actions{
     display:flex;
+
     justify-content:center;
-    gap:10px;
+
     flex-wrap:wrap;
-    margin-top:32px;
+
+    gap:9px;
+
+    margin-top:28px;
 }
 
 .action-btn{
-    border:1px solid #d8d2c4;
-    background:#f7f3ea;
-    color:#315548;
-    padding:9px 18px;
+    border:1px solid #d9d1c4;
+
+    background:#f8f4ec;
+
+    color:#36574a;
+
+    padding:8px 15px;
+
     border-radius:25px;
+
     font-family:inherit;
-    font-size:15px;
+
+    font-size:14px;
+
     cursor:pointer;
+
     transition:.25s;
 }
 
 .action-btn:hover{
-    background:#315548;
+    background:#36574a;
+
     color:white;
 }
 
-/* COMMENTS */
+.action-btn.liked{
+    background:#f6ddd3;
+}
+
+
+/* ==================================================
+   COMMENTS
+================================================== */
 
 .comments{
     display:none;
-    margin-top:30px;
-    border-top:1px solid #e3dfd5;
-    padding-top:25px;
+
+    margin-top:25px;
+
+    padding-top:22px;
+
+    border-top:1px solid #e4ded3;
 }
 
 .comments.show{
@@ -257,180 +487,368 @@ main{
 }
 
 .comments h3{
-    color:#315548;
-    margin-bottom:14px;
+    color:#315547;
+
+    font-size:19px;
+
+    margin-bottom:12px;
 }
 
 .comment-input{
     width:100%;
+
     min-height:90px;
+
     resize:vertical;
-    border:1px solid #ddd8cc;
-    border-radius:15px;
-    padding:13px;
+
+    padding:12px;
+
+    border:1px solid #d9d2c6;
+
+    border-radius:14px;
+
+    background:#fff;
+
     font-family:inherit;
-    background:#faf8f2;
+
     outline:none;
 }
 
-.comment-input:focus{
-    border-color:#315548;
-}
-
 .comment-submit{
-    margin-top:10px;
+    margin-top:8px;
+
     border:none;
-    background:#315548;
+
+    background:#315547;
+
     color:white;
-    padding:10px 20px;
+
+    padding:9px 17px;
+
     border-radius:22px;
+
     font-family:inherit;
+
     cursor:pointer;
 }
 
-.comment-list{
-    margin-top:20px;
-}
-
 .comment{
-    background:#f3efe6;
-    padding:12px 15px;
-    border-radius:14px;
-    margin-bottom:10px;
+    background:#f2eee5;
+
+    border-radius:12px;
+
+    padding:10px 13px;
+
+    margin-top:9px;
+
+    font-size:15px;
 }
 
-/* ABOUT */
+
+/* ==================================================
+   ABOUT
+================================================== */
 
 .about{
-    background:#315548;
-    color:#eee8d9;
-    border-radius:28px;
-    padding:55px 30px;
+    margin-top:20px;
+
+    padding:55px 25px;
+
     text-align:center;
-    box-shadow:0 18px 50px rgba(0,0,0,.12);
+
+    border-radius:28px;
+
+    background:
+        linear-gradient(
+            135deg,
+            rgba(255,153,51,.92),
+            rgba(255,255,255,.96) 50%,
+            rgba(19,136,8,.88)
+        );
+
+    box-shadow:
+        0 15px 40px rgba(50,45,35,.10);
 }
 
 .about h2{
-    font-size:38px;
-    margin-bottom:20px;
+    color:#294d3e;
+
+    font-size:34px;
+
+    margin-bottom:17px;
 }
 
 .about p{
-    max-width:760px;
-    margin:10px auto;
-    font-size:19px;
+    max-width:750px;
+
+    margin:8px auto;
+
+    color:#4d4a44;
+
+    font-size:17px;
+
     line-height:2;
 }
 
-/* FOOTER */
+
+/* ==================================================
+   ADD NEW POEM
+================================================== */
+
+.future{
+    margin-top:45px;
+
+    text-align:center;
+
+    padding:30px 20px;
+
+    border:1px dashed #bdb4a5;
+
+    border-radius:22px;
+
+    background:rgba(255,255,255,.55);
+}
+
+.future h3{
+    color:#315547;
+
+    font-size:22px;
+}
+
+.future p{
+    color:#777067;
+
+    font-size:14px;
+
+    margin-top:5px;
+}
+
+
+/* ==================================================
+   FOOTER
+================================================== */
 
 footer{
-    background:#1c2d27;
-    color:#d9d3c7;
+    margin-top:60px;
+
+    background:#203a30;
+
+    color:#dcd8cf;
+
     text-align:center;
-    padding:35px 20px;
+
+    padding:32px 15px;
 }
 
 footer strong{
     color:white;
 }
 
-/* MOBILE */
+
+/* ==================================================
+   TOP BUTTON
+================================================== */
+
+#top{
+    position:fixed;
+
+    right:17px;
+    bottom:17px;
+
+    width:44px;
+    height:44px;
+
+    border:none;
+
+    border-radius:50%;
+
+    background:#315547;
+
+    color:white;
+
+    font-size:19px;
+
+    cursor:pointer;
+
+    opacity:0;
+
+    pointer-events:none;
+
+    transition:.3s;
+
+    z-index:2000;
+}
+
+#top.show{
+    opacity:1;
+
+    pointer-events:auto;
+}
+
+
+/* ==================================================
+   MOBILE
+================================================== */
 
 @media(max-width:600px){
 
     .hero{
         min-height:82vh;
-        padding:40px 18px 55px;
-        background-attachment:scroll;
+
+        padding:35px 15px 50px;
     }
 
-    .profile{
-        width:125px;
-        height:125px;
+    .hero::after{
+        font-size:210px;
+    }
+
+    .photo-frame{
+        width:145px;
+        height:185px;
+
+        margin-bottom:21px;
+    }
+
+    .hero h1{
+        font-size:43px;
+    }
+
+    .hero h2{
+        font-size:25px;
+    }
+
+    .hero p{
+        font-size:15px;
     }
 
     nav{
-        padding:8px 3px;
-        gap:2px;
+        padding:7px 3px;
     }
 
     nav a{
-        font-size:13px;
-        padding:8px 10px;
+        font-size:12.5px;
+
+        padding:7px 10px;
     }
 
     main{
-        padding:55px 12px;
+        width:94%;
+
+        padding:55px 0;
+    }
+
+    .section-heading{
+        margin-bottom:35px;
     }
 
     .poem-card{
-        padding:40px 17px;
-        border-radius:23px;
+        padding:36px 15px;
+
+        border-radius:21px;
+
+        margin-bottom:35px;
+    }
+
+    .poem-title{
+        font-size:27px;
+
+        margin-bottom:28px;
     }
 
     .poem{
         font-size:18px;
-        line-height:2.15;
+
+        line-height:2.08;
     }
 
     .stanza{
-        margin-bottom:27px;
+        margin-bottom:23px;
     }
 
     .author{
-        font-size:18px;
+        font-size:16px;
+
+        margin-top:24px;
+    }
+
+    .action-btn{
+        font-size:13px;
+
+        padding:7px 12px;
     }
 
     .about{
-        padding:42px 20px;
+        padding:40px 18px;
+
+        border-radius:22px;
+    }
+
+    .about h2{
+        font-size:30px;
+    }
+
+    .about p{
+        font-size:16px;
     }
 }
+
 </style>
 </head>
 
 
 <body>
 
-<!-- ================= HERO ================= -->
+
+<!-- ==================================================
+     HERO
+================================================== -->
 
 <header class="hero" id="home">
 
 <div class="hero-inner">
 
-<img
-    src="my page pic.jpeg"
-    alt="प्रशांत गाहिरे"
-    class="profile"
->
+    <div class="photo-frame">
 
-<h1>प्रशांत गाहिरे</h1>
+        <img
+            src="my page pic.jpeg"
+            alt="प्रशांत गाहिरे"
+        >
 
-<div class="hero-line"></div>
+    </div>
 
-<h2>स्वरचित कविताएँ</h2>
+    <h1>प्रशांत गाहिरे</h1>
 
-<p>
-शब्दों में भावनाएँ • भावनाओं में जीवन
-</p>
+    <div class="hero-line"></div>
+
+    <h2>स्वरचित कविताएँ</h2>
+
+    <p>
+        शब्दों में भावनाएँ • भावनाओं में जीवन
+    </p>
 
 </div>
 
 </header>
 
 
-<!-- ================= MENU ================= -->
+<!-- ==================================================
+     MENU
+================================================== -->
 
 <nav>
 
 <a href="#home">⌂ होम</a>
+
 <a href="#poems">📖 कविताएँ</a>
+
 <a href="#about">✦ मेरे बारे में</a>
 
 </nav>
 
 
-<!-- ================= MAIN ================= -->
+<!-- ==================================================
+     MAIN
+================================================== -->
 
 <main>
 
@@ -447,9 +865,9 @@ footer strong{
 </div>
 
 
-<!-- =====================================================
-     कविता 01
-===================================================== -->
+<!-- ==================================================
+     POEM 1
+================================================== -->
 
 <article class="poem-card">
 
@@ -466,11 +884,11 @@ footer strong{
 
 <div class="stanza">
 
-<span class="line">
+<span class="poem-line">
 कई जन्मों का मैं प्यासा हूंँ, कुछ पाने की है प्यास मुझे।
 </span>
 
-<span class="line">
+<span class="poem-line">
 भटक रहा कई मुद्दत से, घर लौटूंगा विश्वास मुझे।।
 </span>
 
@@ -479,11 +897,11 @@ footer strong{
 
 <div class="stanza">
 
-<span class="line">
+<span class="poem-line">
 तुम चाहो तो बढ़ जाना, मैं परिश्रांत मुसाफिर हूंँ।
 </span>
 
-<span class="line">
+<span class="poem-line">
 कई रातों का मैं जगा हुआ, सोने नहीं देते ख़्वाब मुझे।।
 </span>
 
@@ -517,12 +935,12 @@ onclick="sharePoem('कई जन्मों का मैं प्यास�
 </div>
 
 
-<div class="comments" id="commentsBox1">
+<div class="comments" id="comments1">
 
 <h3>💬 अपनी प्रतिक्रिया लिखें</h3>
 
 <textarea
-id="commentInput1"
+id="input1"
 class="comment-input"
 placeholder="कविता के बारे में कुछ लिखें..."
 ></textarea>
@@ -533,17 +951,16 @@ onclick="addComment(1)">
 प्रतिक्रिया जोड़ें
 </button>
 
-<div id="commentList1" class="comment-list"></div>
+<div id="list1"></div>
 
 </div>
 
 </article>
 
 
-
-<!-- =====================================================
-     कविता 02
-===================================================== -->
+<!-- ==================================================
+     POEM 2
+================================================== -->
 
 <article class="poem-card">
 
@@ -560,20 +977,11 @@ onclick="addComment(1)">
 
 <div class="stanza">
 
-<span class="line">
-हाथों में हाथ तुम्हारा लेकर, जाना है उस पार प्रिये।
-</span>
-
-</div>
-
-
-<div class="stanza">
-
-<span class="line">
+<span class="poem-line">
 संसार सकल और चराचर
 </span>
 
-<span class="line">
+<span class="poem-line">
 चिरकाल रहा कौन धरा पर?
 </span>
 
@@ -582,11 +990,11 @@ onclick="addComment(1)">
 
 <div class="stanza">
 
-<span class="line">
+<span class="poem-line">
 सब कुछ पाने की लोलुपता है,
 </span>
 
-<span class="line">
+<span class="poem-line">
 मानव जीवन है ज़रा पर।
 </span>
 
@@ -595,11 +1003,11 @@ onclick="addComment(1)">
 
 <div class="stanza">
 
-<span class="line">
+<span class="poem-line">
 करतब हमने भी हज़ार किए,
 </span>
 
-<span class="line">
+<span class="poem-line">
 कर्त्तव्य लिए क़िरदार जिए।
 </span>
 
@@ -608,11 +1016,11 @@ onclick="addComment(1)">
 
 <div class="stanza">
 
-<span class="line">
+<span class="poem-line">
 कभी तकलीफों ने शोर किया,
 </span>
 
-<span class="line">
+<span class="poem-line">
 कभी उत्सव ने झंकार किए।
 </span>
 
@@ -621,11 +1029,11 @@ onclick="addComment(1)">
 
 <div class="stanza">
 
-<span class="line">
+<span class="poem-line">
 निष्काम करें हम प्यार प्रिये,
 </span>
 
-<span class="line">
+<span class="poem-line">
 जग-जीवन का ये सार प्रिये।
 </span>
 
@@ -634,11 +1042,11 @@ onclick="addComment(1)">
 
 <div class="stanza">
 
-<span class="line">
+<span class="poem-line">
 उहापोह या उथल-पुथल हो,
 </span>
 
-<span class="line">
+<span class="poem-line">
 चाहे नैया मझधार प्रिये।
 </span>
 
@@ -647,11 +1055,11 @@ onclick="addComment(1)">
 
 <div class="stanza">
 
-<span class="line">
+<span class="poem-line">
 हाथों में हाथ तुम्हारा लेकर,
 </span>
 
-<span class="line">
+<span class="poem-line">
 जाना है उस पार प्रिये।।
 </span>
 
@@ -685,12 +1093,12 @@ onclick="sharePoem('हाथों में हाथ तुम्हारा
 </div>
 
 
-<div class="comments" id="commentsBox2">
+<div class="comments" id="comments2">
 
 <h3>💬 अपनी प्रतिक्रिया लिखें</h3>
 
 <textarea
-id="commentInput2"
+id="input2"
 class="comment-input"
 placeholder="कविता के बारे में कुछ लिखें..."
 ></textarea>
@@ -701,48 +1109,56 @@ onclick="addComment(2)">
 प्रतिक्रिया जोड़ें
 </button>
 
-<div id="commentList2" class="comment-list"></div>
+<div id="list2"></div>
 
 </div>
 
 </article>
 
+
+<!-- नई कविताओं के लिए स्थान -->
+
+<div class="future">
+
+<h3>✦ आने वाली कविताएँ ✦</h3>
+
+<p>
+इस साहित्यिक संसार में नई कविताएँ शीघ्र जुड़ेंगी...
+</p>
+
+</div>
+
 </section>
 
 
+<!-- ==================================================
+     ABOUT
+================================================== -->
 
-<!-- ================= ABOUT ================= -->
-
-<section id="about">
-
-<div class="about">
+<section id="about" class="about">
 
 <h2>मेरे बारे में</h2>
 
 <p>
-मैं प्रशांत गाहिरे हूँ। शब्दों और भावनाओं के माध्यम से
-जीवन के अनुभवों को कविता में पिरोने का प्रयास करता हूँ।
+मैं प्रशांत गाहिरे हूँ।
+शब्दों और भावनाओं के माध्यम से जीवन को देखने,
+समझने और महसूस करने का प्रयास करता हूँ।
 </p>
 
 <p>
-यह पृष्ठ मेरी स्वरचित कविताओं का एक छोटा-सा
-साहित्यिक संसार है।
+यह पृष्ठ मेरी स्वरचित कविताओं का एक छोटा-सा संसार है।
+यदि कोई पंक्ति आपके मन को छू जाए,
+तो मेरे शब्दों को अपना अर्थ मिल गया।
 </p>
-
-<p>
-यदि मेरी कोई पंक्ति आपके मन को छू जाए,
-तो समझूँगा कि मेरे शब्दों को अपना अर्थ मिल गया।
-</p>
-
-</div>
 
 </section>
 
 </main>
 
 
-
-<!-- ================= FOOTER ================= -->
+<!-- ==================================================
+     FOOTER
+================================================== -->
 
 <footer>
 
@@ -755,52 +1171,49 @@ onclick="addComment(2)">
 </p>
 
 <p>
-© 2026 प्रशांत गाहिरे
+© 2026
 </p>
 
 </footer>
 
 
+<button
+id="top"
+onclick="window.scrollTo({top:0,behavior:'smooth'})">
+↑
+</button>
+
 
 <script>
 
-/* ================= LIKE ================= */
+/* ================================
+   LIKE
+================================ */
 
 function likePoem(id){
 
-    let key = "poemLike_" + id;
+    const key="likes_"+id;
 
-    let likes =
-    Number(localStorage.getItem(key) || 0);
+    let count=
+        Number(localStorage.getItem(key)||0);
 
-    likes++;
+    count++;
 
-    localStorage.setItem(key,likes);
+    localStorage.setItem(key,count);
 
-    document.getElementById("like"+id).innerText=likes;
+    document.getElementById("like"+id)
+        .innerText=count;
 }
 
 
-/* ================= LOAD LIKES ================= */
-
-function loadLikes(){
-
-    for(let i=1;i<=2;i++){
-
-        let likes =
-        Number(localStorage.getItem("poemLike_"+i) || 0);
-
-        document.getElementById("like"+i).innerText=likes;
-    }
-}
-
-
-/* ================= COMMENTS OPEN/CLOSE ================= */
+/* ================================
+   COMMENTS
+================================ */
 
 function toggleComments(id){
 
-    let box =
-    document.getElementById("commentsBox"+id);
+    const box=
+        document.getElementById("comments"+id);
 
     box.classList.toggle("show");
 
@@ -808,28 +1221,27 @@ function toggleComments(id){
 }
 
 
-/* ================= ADD COMMENT ================= */
-
 function addComment(id){
 
-    let input =
-    document.getElementById("commentInput"+id);
+    const input=
+        document.getElementById("input"+id);
 
-    let text =
-    input.value.trim();
+    const text=
+        input.value.trim();
 
     if(!text){
 
-        alert("पहले अपनी प्रतिक्रिया लिखिए।");
+        alert("कृपया अपनी प्रतिक्रिया लिखें।");
 
         return;
     }
 
-    let key =
-    "poemComments_"+id;
+    const key="comments_"+id;
 
-    let comments =
-    JSON.parse(localStorage.getItem(key) || "[]");
+    let comments=
+        JSON.parse(
+            localStorage.getItem(key)||"[]"
+        );
 
     comments.push(text);
 
@@ -844,29 +1256,28 @@ function addComment(id){
 }
 
 
-/* ================= SHOW COMMENTS ================= */
-
 function showComments(id){
 
-    let key =
-    "poemComments_"+id;
+    const key="comments_"+id;
 
-    let comments =
-    JSON.parse(localStorage.getItem(key) || "[]");
+    const comments=
+        JSON.parse(
+            localStorage.getItem(key)||"[]"
+        );
 
-    let list =
-    document.getElementById("commentList"+id);
+    const list=
+        document.getElementById("list"+id);
 
     list.innerHTML="";
 
     comments.forEach(function(text){
 
-        let div =
-        document.createElement("div");
+        const div=
+            document.createElement("div");
 
         div.className="comment";
 
-        div.innerText=text;
+        div.textContent=text;
 
         list.appendChild(div);
 
@@ -874,7 +1285,9 @@ function showComments(id){
 }
 
 
-/* ================= SHARE ================= */
+/* ================================
+   SHARE
+================================ */
 
 function sharePoem(title){
 
@@ -885,7 +1298,8 @@ function sharePoem(title){
             title:title+" | प्रशांत गाहिरे",
 
             text:
-            "प्रशांत गाहिरे की स्वरचित कविता — "+title,
+            "प्रशांत गाहिरे की स्वरचित कविता — "
+            +title,
 
             url:window.location.href
 
@@ -898,20 +1312,49 @@ function sharePoem(title){
         );
 
         alert("पेज का लिंक कॉपी हो गया।");
-
     }
 }
 
 
-/* ================= START ================= */
+/* ================================
+   LOAD
+================================ */
 
 window.addEventListener("load",function(){
 
-    loadLikes();
+    for(let i=1;i<=2;i++){
 
-    showComments(1);
+        const count=
+            Number(
+                localStorage.getItem("likes_"+i)||0
+            );
 
-    showComments(2);
+        document.getElementById("like"+i)
+            .innerText=count;
+
+        showComments(i);
+    }
+
+});
+
+
+/* ================================
+   TOP BUTTON
+================================ */
+
+window.addEventListener("scroll",function(){
+
+    const button=
+        document.getElementById("top");
+
+    if(window.scrollY>450){
+
+        button.classList.add("show");
+
+    }else{
+
+        button.classList.remove("show");
+    }
 
 });
 
