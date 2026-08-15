@@ -307,46 +307,35 @@ main{
 
 .poem-card{
     position:relative;
-
-    background:
-        rgba(255,253,248,.95);
-
+    background:linear-gradient(145deg,#183b30,#102b23);
+    color:#f3eee2;
     border-radius:26px;
-
     padding:42px clamp(18px,6vw,55px);
-
     margin-bottom:48px;
-
-    border:1px solid rgba(80,70,55,.12);
-
+    border:1px solid rgba(216,201,162,.22);
     box-shadow:
-        0 15px 45px rgba(62,52,38,.10);
+        0 18px 50px rgba(0,0,0,.25),
+        inset 0 1px 0 rgba(255,255,255,.05);
 }
-
 .poem-card::before{
     content:"";
-
     position:absolute;
-
     top:0;
     left:0;
     right:0;
-
     height:5px;
-
     border-radius:26px 26px 0 0;
-
-    background:
-        linear-gradient(
-            to right,
-            #ff9933 0%,
-            #ff9933 33%,
-            #ffffff 33%,
-            #ffffff 67%,
-            #138808 67%,
-            #138808 100%
-        );
+    background:linear-gradient(
+        to right,
+        #ff9933 0%,
+        #ff9933 33%,
+        #f8f5ec 33%,
+        #f8f5ec 67%,
+        #138808 67%,
+        #138808 100%
+    );
 }
+           
 
 .poem-number{
     text-align:center;
